@@ -5,6 +5,9 @@ class Human {
     public void display() {
         System.out.print(id + " " + name);
     }
+    public int idUp(int number) {
+        return this.id += number;
+    }
 }
 
 public class Main {
@@ -14,6 +17,7 @@ public class Main {
         man.id = 10;
         man.name = "Long";
 
+        man.idUp(11);
         man.display();
     }
     
