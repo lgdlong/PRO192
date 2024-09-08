@@ -1,16 +1,18 @@
-import java.util.Arrays;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class Test {
     public static void main(String[] args) {
-        String str = "long    phung-long  -long";
-        String[] names = str.split("\\s+");
+        Scanner sc = new Scanner(System.in);
 
-        for (String name : names) {
-            System.out.println(name);
+        try {
+            System.out.print("Enter an integer: ");
+            int number = sc.nextInt();  // Expecting an integer input
+            System.out.println("You entered: " + number);
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input! Please enter an integer.");
+        } finally {
+            sc.close();  // Close the scanner
         }
-
-        str.trim();
-
     }
 }
-
