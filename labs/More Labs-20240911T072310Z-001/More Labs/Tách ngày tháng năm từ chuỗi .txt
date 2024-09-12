@@ -1,0 +1,5 @@
+String strDate = "06/10/2021";
+StringTokenizer st = new StringTokenizer(strDate, "/");
+int day = Integer.parseInt(st.nextToken());
+int  month = Integer.parseInt(st.nextToken());
+int year = Integer.parseInt(st.nextToken());
