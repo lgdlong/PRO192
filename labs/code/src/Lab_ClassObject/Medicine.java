@@ -158,8 +158,8 @@ public class Medicine {
         }
     }
 
-    public void increaseQuantity() {
-        this.quantity += 50;
+    public void increaseQuantity(long number) {
+        this.quantity += number;
     }
 }
 
