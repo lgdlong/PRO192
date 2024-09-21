@@ -82,11 +82,11 @@ class Guitar{
 }
 public class Part3 {
     public static void main(String[] args) {
-        System.out.println("Hello");
         Guitar guitar1 = new Guitar();
 
         Guitar guitar2 = new Guitar("G123", 2000,"Sony","Model123","hardWood","softWood");
 
+        guitar2.setPrice(3000);
         guitar2.createSound();
 
     }
