@@ -43,4 +43,9 @@ public class Rectangle extends Shape {
     public double getPerimeter() {
         return 2 * (length + width);
     }
+
+    @Override
+    public String toString() {
+        return String.format("A Rectangle with width=%.3f and length=%.3f, which is a subclass of %s", this.width, this.length, super.toString());
+    }
 }

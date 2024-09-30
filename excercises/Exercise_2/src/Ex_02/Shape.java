@@ -32,6 +32,14 @@ public class Shape {
 
     @Override
     public String toString() {
-        return String.format("Shape[color=%s,filled=%b]", color, filled);
+        String message;
+        if (isFilled()) {
+            message = "filled";
+        }
+        else {
+            message = "Not filled";
+        }
+
+        return String.format("A Shape with color of %s and %s", this.color, message);
     }
 }

@@ -32,7 +32,8 @@ public class Circle extends Shape {
         return 2 * Math.PI * radius;
     }
 
+    @Override
     public String toString() {
-        return String.format("Circle[Shape[color=%s,filled=%b],radius=%f]", getColor(), isFilled(), radius);
+        return String.format("A Circle with radius=%.3f, which is a subclass of %s", this.radius, super.toString());
     }
 }
