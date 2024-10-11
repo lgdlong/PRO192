@@ -1,6 +1,4 @@
-
 import java.util.Arrays;
-import jdk.internal.misc.VM;
 
 public class Audi extends Vehicle{
     private int releasedYear;
@@ -40,20 +38,21 @@ public class Audi extends Vehicle{
     }
     
     public String getRightFormatColor(String color) {
-        // Color with right format: rEd -> Red (TitleCase)
+        color = color.toLowerCase();
+        Character.toTitleCase(color.charAt(0));
+        
+        // Color with right format: rEd -> Red (TitleCase) rED
         StringBuilder finalColor = new StringBuilder();
         finalColor.append(Character.toTitleCase(color.charAt(0)))
                   .append(color.substring(1).toLowerCase());
         
         return finalColor.toString().trim();
-    }
+    } 
     
     public boolean isColorValid(String color) {
         String finalColor = getRightFormatColor(color);
-        if (Arrays.asList(VALID_COLORS).contains(finalColor)) {
-            return true;
-        }
-        return false;
+        
+        return Arrays.asList(VALID_COLORS).contains(finalColor);
     }
     
     @Override

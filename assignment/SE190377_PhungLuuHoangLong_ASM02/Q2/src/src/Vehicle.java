@@ -88,6 +88,6 @@ public class Vehicle {
     
     @Override
     public String toString() {
-        return String.format("%s,%s,%.2f,%d,%.2f", id, name, price, quantity, getSubTotal());
+        return String.format("%s,%s,%.2f,%d,%.2f", id, getName(), price, quantity, getSubTotal());
     }
 }

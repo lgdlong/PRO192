@@ -1,9 +1,9 @@
-import java.util.Arrays;
-
 /**
  *
  * @author PhungLuuHoangLong
  */
+import java.util.Arrays;
+
 public class Coffee extends Beverage{
     private int expire;    
     private String type;

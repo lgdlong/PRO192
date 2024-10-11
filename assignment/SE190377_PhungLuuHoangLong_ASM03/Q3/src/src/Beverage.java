@@ -2,7 +2,7 @@
  *
  * @author PhungLuuHoangLong
  */
-abstract class Beverage {
+public abstract class Beverage {
     private String id;
     private String name;
     private double price;
@@ -15,7 +15,7 @@ abstract class Beverage {
     }
 
     public Beverage(String id, String name, double price, int quantity) {
-        this.id = isIdValid(id) ? id : "NT000";
+        this.id = isIdValid(id) ? id : "TN000";
         this.name = isNameValid(name) ? name : "New Beverage";
         this.price = isValidPrice(price) ? price : 1.0;
         this.quantity = isQuantityValid(quantity) ? quantity : 1;
@@ -26,7 +26,7 @@ abstract class Beverage {
     }
 
     public void setId(String id) {
-        this.id = isIdValid(id) ? id : "NT000";
+        this.id = isIdValid(id) ? id : "TN000";
     }
 
     public String getName() {
@@ -61,7 +61,7 @@ abstract class Beverage {
     }
     
     public boolean isNameValid(String name) {
-        return (name.isEmpty() || name.length() < 5 || name.length() > 50);
+        return (!name.isEmpty() && name.length() >= 5 && name.length() <= 50);
     }
     
     public boolean isValidPrice(double price) {
