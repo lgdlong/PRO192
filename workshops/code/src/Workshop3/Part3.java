@@ -68,7 +68,7 @@ class Guitar{
         this.topWood = topWood;
     }
 
-    // Other method
+    // other methods
     public void createSound() {
         System.out.println(
                 serialNumber + " " +

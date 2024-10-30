@@ -1,5 +1,4 @@
 public class MyUtilities implements IUtilities{
-
     @Override
     public int sumNumber(int number) {
         int n = number / 2;
@@ -30,5 +29,4 @@ public class MyUtilities implements IUtilities{
         
         return res.replace(s1, s2);
     }
-    
 }

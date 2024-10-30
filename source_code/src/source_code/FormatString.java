@@ -1,6 +1,8 @@
 package source_code;
 
 import interfaces.I_FormatString;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 
 public class FormatString implements I_FormatString {
@@ -28,6 +30,31 @@ public class FormatString implements I_FormatString {
 
         return titleCased.toString().trim(); // Remove trailing whitespace
     }
+    
+    public void longestSubstring(String inputString) {
+        char[] arr1 = inputString.toCharArray();
+        String long_str = null;
+        int str_length = 0;
+        // character at index i
+        // LinkedHashMap for sure index follow to order
+        LinkedHashMap<Character, Integer> charPosMap = new LinkedHashMap<>();
+        for (int i = 0; i < arr1.length; i++) {
+            char ch = arr1[i];
+            if (!charPosMap.containsKey(ch)) {
+                charPosMap.put(ch, i);
+            } else {
+                i = charPosMap.get(ch);
+                charPosMap.clear();
+            }
+            if (charPosMap.size() > str_length) {
+                str_length = charPosMap.size();
+                long_str = charPosMap.keySet().toString();
+            }
+        }
+        System.out.println("Input String : " + inputString);
+        System.out.println("The longest substring : " + long_str);
+        System.out.println("The longest Substring Length : " + str_length);
+    }
 
     /**
      * Removes duplicate words from a string and maintains their original order.
@@ -50,6 +77,19 @@ public class FormatString implements I_FormatString {
         }
 
         return String.join(" ", set); // Join the words back into a string
+    }
+    
+    public String removeDuplicateChar(String str) {
+        HashSet<Character> charsPresent = new HashSet<>();
+        StringBuilder stringBuilder = new StringBuilder();
+        for(int i = 0; i < str.length(); i++) {
+            if (!charsPresent.contains(str.charAt(i))) {
+                stringBuilder.append(str.charAt(i));
+                charsPresent.add(str.charAt(i));
+            }
+        }
+
+        return stringBuilder.toString();
     }
 
     /**
