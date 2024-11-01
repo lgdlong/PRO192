@@ -1,9 +1,12 @@
 package source_code;
 
 import interfaces.I_FormatString;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
+import java.util.Map;
 
 public class FormatString implements I_FormatString {
     /**
@@ -145,5 +148,64 @@ public class FormatString implements I_FormatString {
 
         return count; // Return the count of occurrences
     }
+    
+    public boolean isPasswordComplex(String input) {
+        if (input == null) return false;
 
+        // Regex pattern for complexity: at least one uppercase, one lowercase, one digit, and 8+ characters
+        String pattern = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d).{8,}$";
+        return input.matches(pattern);
+    }
+
+    public String[] toNumberArray(String input) {
+        // Split by non-digit characters and filter out empty strings
+        return Arrays.stream(input.split("\\D+"))
+                .filter(str -> !str.isEmpty()) // Remove empty strings
+                .toArray(String[]::new);       // Collect into a String array
+    }
+    
+    /**
+    * Finds the most frequent character in the input string and its occurrence count.
+    *
+    * @param input the input string to analyze
+    * @return a Map.Entry with the most frequent character as the key and its count as the value;
+    *         returns null if the input is empty
+    * @throws NullPointerException if input is null
+    */
+    public Map.Entry<Character, Integer> findMostFrequentChar(String input) {
+        Map<Character, Integer> frequencyMap = new HashMap<>();
+
+        // Populate the frequency map
+        for (char c : input.toCharArray()) {
+            frequencyMap.put(c, frequencyMap.getOrDefault(c, 0) + 1);
+        }
+
+        // Find the character with the highest frequency
+        Map.Entry<Character, Integer> mostFrequent = null;
+        for (Map.Entry<Character, Integer> entry : frequencyMap.entrySet()) {
+            if (mostFrequent == null || entry.getValue() > mostFrequent.getValue()) {
+                mostFrequent = entry;
+            }
+        }
+
+        return mostFrequent;
+    }
+    
+    /**
+     * Removes characters from position l to r in the string s.
+     *
+     * @param s The input string
+     * @param l The starting index (1-based)
+     * @param r The ending index (1-based)
+     * @return The resulting string after removing characters from l to r
+     */
+    public String removeSubstring(String s, int l, int r) {
+        // Validate indices
+        if (l < 1 || r > s.length() || l > r) {
+            throw new IllegalArgumentException("Invalid indices.");
+        }
+        
+        // Create the result by removing the section from l to r
+        return s.substring(0, l - 1) + s.substring(r);
+    }
 }

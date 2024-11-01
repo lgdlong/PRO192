@@ -1,5 +1,7 @@
 package interfaces;
 
+import java.util.Map;
+
 public interface I_FormatString {
     public String titleCase(String value);
     
@@ -15,5 +17,20 @@ public interface I_FormatString {
     
     public int countOccurrences(String value, String substring); // Đếm số lần subtring xuất hiện
 
+    public boolean isPasswordComplex(String input);
+    
+    // BacXuan100CoHa688 -> 100 688
+    public String[] toNumberArray(String input);
+    
+    /**
+     * Input: "hello world"
+     * Output: Character: l
+     *         Occurrences: 3
+     * 
+     * Using getKey(), getValue()
+     */
+    public Map.Entry<Character, Integer> findMostFrequentChar(String input);
+    
+    public String removeSubstring(String s, int l, int r);
 }
 
