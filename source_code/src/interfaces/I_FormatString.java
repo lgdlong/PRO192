@@ -28,9 +28,10 @@ public interface I_FormatString {
      *         Occurrences: 3
      * 
      * Using getKey(), getValue()
+     * @param input
+     * @return 
      */
     public Map.Entry<Character, Integer> findMostFrequentChar(String input);
     
     public String removeSubstring(String s, int l, int r);
 }
-
